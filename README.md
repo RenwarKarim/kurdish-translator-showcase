@@ -75,7 +75,8 @@ This tool makes the loop one paste in each direction, and it fixes these problem
 flowchart LR
     T["SDL Trados Studio"] -- "Ctrl+C / Ctrl+V" --> B["Browser page<br/>one HTML file, plain JavaScript"]
     B -- "HTTP on 127.0.0.1" --> S["Local Python server<br/>standard library only"]
-    S -- "HTTPS, streaming" --> G["Google Gemini API"]    S -- "speech only" --> F["ffmpeg"]
+    S -- "HTTPS, streaming" --> G["Google Gemini API"]
+    S -- "speech only" --> F["ffmpeg"]
     S -- "transcript" --> W["Word file (.docx)"]
     L["Launcher"] -- "read-only token" --> R[("Private GitHub repository")]
     L -- "starts" --> S
