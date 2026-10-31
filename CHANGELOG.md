@@ -6,7 +6,6 @@ What is new in each version of Kurdish Translator. The source code is private.
 
 - Translate: a model menu at the top right of the Translate page. When the chosen model is busy, over a limit or sends no text for 5 seconds, the next model translates that segment, and the line under the translation names it. Each new segment starts with the chosen model again.
 - Kurdish to English: American spellings become British spellings by themselves (realise, colour, practise). The line under the result lists each change.
-- Transcribe (English + Kurdish): a new way with ElevenLabs, which writes both languages and finds the speakers in one go. Add an ElevenLabs key in Settings, or drop a transcript that you exported from the ElevenLabs website (.json). Gemini then names the speakers with your template's names and translates the Kurdish parts.
 - Transcribe: a turn with English and Kurdish stays one row, with the English in the template's English format and the translation in its Kurdish format.
 - Transcribe: the rows follow the house style more closely: no commas in English rows, translations without commas, British spelling, and 30-second marks only from the first row on.
 - Transcribe with Gemini: a long recording goes in parts of 20 minutes, and your template's speaker names and first rows guide the model. "Continue the template" starts at the time in your last row.

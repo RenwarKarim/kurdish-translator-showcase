@@ -33,8 +33,7 @@ This tool makes the loop one paste in each direction, and it fixes these problem
 ### Transcription
 
 - **English recordings with Kurdish parts** become a transcript table in the client's own Word template: timecodes, speakers and the template's formatting.
-- **Two engines.** Gemini alone, or ElevenLabs speech-to-text for both languages, after which Gemini names the speakers and translates the Kurdish parts.
-- **The model finds the speakers itself** and describes them (for example "S2: interpreter, male"). Rows where the speaker is not certain are marked for review.
+- **Google Gemini models, under UK data terms.** In the UK, Google's Gemini API terms for paid services apply to all use: Google does not use the audio or the transcript to improve its products, and it keeps requests only for a limited time, to detect abuse. The tool deletes each upload right after the transcription.- **The model finds the speakers itself** and describes them (for example "S2: interpreter, male"). Rows where the speaker is not certain are marked for review.
 - **Kurdish parts get time-stamped markers**, so the translator can find each place in the audio and type the translation over the marker.
 - **Long recordings and large videos.** ffmpeg extracts only the speech: a 1.2 GB video becomes about 5.5 MB of audio. Recordings longer than 25 minutes go to the model in parts, and the speaker list carries from part to part.
 - **Continue a partly finished transcript** from a given time, in the translator's own document.
@@ -49,7 +48,7 @@ This tool makes the loop one paste in each direction, and it fixes these problem
 ### Privacy and reliability
 
 - The server listens on 127.0.0.1 only and refuses requests from other websites.
-- The tool saves no texts. Texts and recordings go only from the PC to the AI service: the Google Gemini API, and ElevenLabs when you choose it.
+- The tool saves no texts. Texts and recordings go only from the PC to the Google Gemini API, under Google's UK data terms (not used to improve Google's products).
 - When a model is busy, the tool tries again or switches to the next model by itself. Messages about quotas, keys and the network are in plain words, with what to do next.
 
 ## Screenshots
@@ -76,9 +75,7 @@ This tool makes the loop one paste in each direction, and it fixes these problem
 flowchart LR
     T["SDL Trados Studio"] -- "Ctrl+C / Ctrl+V" --> B["Browser page<br/>one HTML file, plain JavaScript"]
     B -- "HTTP on 127.0.0.1" --> S["Local Python server<br/>standard library only"]
-    S -- "HTTPS, streaming" --> G["Google Gemini API"]
-    S -. "optional" .-> E["ElevenLabs Speech-to-Text"]
-    S -- "speech only" --> F["ffmpeg"]
+    S -- "HTTPS, streaming" --> G["Google Gemini API"]    S -- "speech only" --> F["ffmpeg"]
     S -- "transcript" --> W["Word file (.docx)"]
     L["Launcher"] -- "read-only token" --> R[("Private GitHub repository")]
     L -- "starts" --> S
@@ -88,7 +85,7 @@ flowchart LR
 | --- | --- |
 | Server | Python 3, standard library only: no packages to install |
 | Page | One HTML file with plain JavaScript and CSS, a clean Material-style design, right-to-left layout for Kurdish |
-| AI | Google Gemini API with streamed answers, and a switch to the next model when one is busy; ElevenLabs Speech-to-Text (optional) |
+| AI | Google Gemini API with streamed answers, and a switch to the next model when one is busy |
 | Audio and video | ffmpeg |
 | Word files | Made directly from the client's .docx template (Office Open XML) |
 | Setup and updates | PowerShell and Python, GitHub API |
